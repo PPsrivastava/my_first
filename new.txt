@@ -1,0 +1,14 @@
+provider "aws" {
+  region = "ap-south-1"
+  access_key = "${file("../kplabs-terra.txt")}"
+  secret_key = "${file("../mykey.txt)}"
+}
+
+ resource "aws instance" "my-ec2" {
+  ami = ami-00bf4ae5a7909786c
+  instance_type = "t2.micro"
+
+  tags = {
+    name = "HelloWorld"
+  }
+}
